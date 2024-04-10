@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resource Agency Directory</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .agency-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            grid-gap: 20px;
+        }
+
+        .agency-card {
+            background-color: #f2f2f2;
+            border-radius: 5px;
+            padding: 20px;
+        }
+
+        .agency-name {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+
+        .agency-details {
+            margin-bottom: 10px;
+        }
+
+        .agency-contact {
+            margin-top: 10px;
+            text-align: center;
+        }
+
+        .contact-button {
+            background-color: #007bff;
+            color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px 20px;
+            cursor: pointer;
+        }
+
+        .contact-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resource Agency Directory</h1>
+        <div class="agency-list" id="agency-list"></div>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const agencyList = document.getElementById("agency-list");
+
+            // Sample agency data (replace with real data)
+            const agencies = [
+                { name: "Tamil Nadu Red Cross", location: "Chennai", contact: "contact@tamilnaduredcross.org" },
+                { name: "Madurai Relief Foundation", location: "Madurai", contact: "contact@madurairelief.org" },
+                { name: "Trichy Aid Organization", location: "Trichy", contact: "contact@trichyaid.org" },
+                { name: "Coimbatore Disaster Response", location: "Coimbatore", contact: "contact@coimbatoreresponse.org" }
+            ];
+
+            agencies.forEach(agency => {
+                const agencyCard = document.createElement("div");
+                agencyCard.classList.add("agency-card");
+                agencyCard.innerHTML = `
+                    <div class="agency-name">${agency.name}</div>
+                    <div class="agency-details">Location: ${agency.location}, Tamil Nadu</div>
+                    <div class="agency-details">Contact: ${agency.contact}</div>
+                    <div class="agency-contact">
+                        <button class="contact-button" onclick="contactAgency('${agency.contact}')">Contact</button>
+                    </div>
+                `;
+                agencyList.appendChild(agencyCard);
+            });
+
+            function contactAgency(contactEmail) {
+                // Replace this with your preferred method of contacting the agency (e.g., email, phone call, etc.)
+                alert(`Contacting agency at ${contactEmail}`);
+            }
+        });
+    </script>
+</body>
+</html>
